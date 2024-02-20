@@ -1,7 +1,9 @@
 # Notes-Taking application using Flask and SQLAlchemy.
 
 ## Required packages
-run pip install requirements.txt
+```python
+pip install requirements.txt
+```
 
 ## API Endpoints
 
@@ -24,3 +26,87 @@ run pip install requirements.txt
    - The Update Note endpoint requires a note ID, access token, and new message provided as JSON payloads. If the token is valid and the user associated with it has access to the note, the new message will be updated. Otherwise, an appropriate error message will be displayed.
 
    
+## Testing
+1. **Signup** - *POST*
+``` cUrl
+curl --location 'http://127.0.0.1:5000/signup' \
+--header 'Content-Type: application/json' \
+--data '{
+    "username": "asdasdasd",
+    "password": "123456",
+}'
+```
+2. **Login** - *POST*
+``` cUrl
+curl --location 'http://127.0.0.1:5000/login' \
+--header 'Content-Type: application/json' \
+--data '{
+    "username": "asdasdasd",
+    "password": "123456",
+}'
+```
+3. **Create Note** - *POST*
+``` cUrl
+curl --location 'http://127.0.0.1:5000/notes/create' \
+--header 'Content-Type: application/json' \
+--data '{
+    "access_token": "your-access-token",
+    "access_list": "rsiva0400",
+    "message": "Don'\''t die",
+}'
+```
+4. **Fetch Note** - *GET*
+``` cUrl
+curl --location --request GET 'http://127.0.0.1:5000/notes/1' \
+--header 'Content-Type: application/json' \
+--data '{
+    "access_token": "your-access-token",
+}'
+```  
+5. **Share Note** - *POST*
+```cUrl
+curl --location 'http://127.0.0.1:5000/notes/share' \
+--header 'Content-Type: application/json' \
+--data '{
+    "access_token": "your-access-token",
+    "new_names": "asdasdasd,  ijonidnoinoind",
+    "note_id": 6,
+}'
+```
+6. **Update Note** - *PUT*
+```cUrl
+curl --location --request PUT 'http://127.0.0.1:5000/notes/1' \
+--header 'Content-Type: application/json' \
+--data '{
+    "access_token": "your-access-token",
+    "note_id": 6,
+    "updated_text": "Don'\''t die (optional not a rule)"
+}'
+```
+
+## Testing in Postman
+For testing in Postman API, use the same api url and change the JSON payload with respect to API endpoint.
+
+
+*JSON Payload for Fetch Note*
+```
+{
+    "access_token": "your-access-token",
+}
+```
+*Sample Output for Fetch Note*
+```
+{
+    "access_list": [
+        "rsiva0400",
+        "newUser1",
+        "newUser2"
+    ],
+    "created_by": "rsiva0400",
+    "created_on": "2024-02-20 16:37:35",
+    "id": 1,
+    "message": "Hi, How are you?",
+    "modified_by": "rsiva0400",
+    "modified_on": "2024-02-20 16:37:35"
+}
+```
