@@ -1,9 +1,9 @@
-Notes-Taking application using Flask and SQLAlchemy.
+# Notes-Taking application using Flask and SQLAlchemy.
 
-Required packages
+## Required packages
 run pip install requirements.txt
 
-**API Endpoints**
+## API Endpoints
 
 1. **Signup** - *POST*
    - The Signup endpoint accepts JSON payloads containing a username and password. It creates a new instance in the user database using the provided credentials.
