@@ -110,3 +110,8 @@ For testing in Postman API, use the same api url and change the JSON payload wit
     "modified_on": "2024-02-20 16:37:35"
 }
 ```
+## Unit Testing - Pytest
+For Unit testing, run **test_api_endpoint.py**.
+```python
+python -m pytest -v -s
+```
