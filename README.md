@@ -1,4 +1,5 @@
 # Notes-Taking application using Flask and SQLAlchemy.
+This API provides a comprehensive set of endpoints tailored to handle user authentication and note management tasks within your application. Whether you're developing a personal note-taking app or a collaborative workspace, these endpoints offer essential functionalities to enrich your users' experience.
 
 ## Required packages
 ```python
